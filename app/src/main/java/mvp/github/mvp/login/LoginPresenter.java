@@ -3,11 +3,9 @@ package mvp.github.mvp.login;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.view.View;
 
 import mvp.github.mvp.R;
 import mvp.github.mvp.data.User;
-import mvp.github.mvp.data.UserDataSource;
 import mvp.github.mvp.data.UserRepository;
 
 /**
@@ -139,6 +137,10 @@ public class LoginPresenter implements LoginContract.Presenter {
 
             if (success) {
                 mLoginView.toMainAct();
+                if (mUserRepository != null) {
+                    mUserRepository.saveUserInfo(new User(mLoginView.getUserEmail(),
+                            mLoginView.getPassword()));
+                }
             } else {
                 mLoginView.showFailedError();
             }
