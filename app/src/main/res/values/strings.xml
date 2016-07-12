@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login-MVP</string>
+    <string name="app_name">Login-MVP-Architecture</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

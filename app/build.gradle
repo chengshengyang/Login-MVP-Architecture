@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "mvp.github.mvp"
+        applicationId "com.github.mvp"
         minSdkVersion 22
         targetSdkVersion 23
         versionCode 1
