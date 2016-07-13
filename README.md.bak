@@ -98,7 +98,7 @@
 > Note: in a MVP context, the term "view" is overloaded:
 
   > The class android.view.View will be referred to as "Android View"
-The view that receives commands from a presenter in MVP, will be simply called "view".
+  The view that receives commands from a presenter in MVP, will be simply called "view".
 
   我来献个丑，翻译一下：
 > 注意：在MVP的上下文里，“view”一词有多重含义:
