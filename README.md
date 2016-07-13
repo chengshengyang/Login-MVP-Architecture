@@ -104,7 +104,7 @@ The view that receives commands from a presenter in MVP, will be simply called "
 > 注意：在MVP的上下文里，“view”一词有多重含义:
 
   > - android.view.View被称为“Android View”
-    - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
+  - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
 
   什么意思？
 
