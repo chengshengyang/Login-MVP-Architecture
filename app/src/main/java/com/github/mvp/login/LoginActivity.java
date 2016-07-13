@@ -22,12 +22,13 @@ public class LoginActivity extends AppCompatActivity {
         LoginFragment loginFragment = (LoginFragment) getSupportFragmentManager().
                 findFragmentById(R.id.contentFrame);
 
+        // Create the view
         if (loginFragment == null) {
             loginFragment = LoginFragment.newInstance("LOGIN_FRAGMENT");
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.contentFrame, loginFragment);
-            transaction.commit();
         }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.contentFrame, loginFragment);
+        transaction.commit();
 
         // Create the presenter
         new LoginPresenter(getApplicationContext(),
@@ -36,6 +37,5 @@ public class LoginActivity extends AppCompatActivity {
                         UserRemoteDataSource.getInstance()),
                 loginFragment);
     }
-
 }
 
