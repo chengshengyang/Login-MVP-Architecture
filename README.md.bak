@@ -22,7 +22,6 @@
 
 # MVP实现登陆
 ![Android-MVP-Architecture](https://github.com/googlesamples/android-architecture/wiki/images/mvp.png)
-
 这是google samples TODO-MVP项目中的MVP图解。因为本人学习MVP主要也是根据谷歌官方demo来的，所以，这个图直接拿来。这个图怎么看？
 
 - 分为左右两部分，左边没颜色的部分包含的内容是Model，这里面包含了数据实体模型、数据访问接口、SQLite数据库操作、网路数据操作、数据内存缓存，这些都是Model要做的事情，跟MVC没什么差别；
@@ -98,14 +97,14 @@
   注意官方的demo说明里有这段内容：
 > Note: in a MVP context, the term "view" is overloaded:
 
-  > - The class android.view.View will be referred to as "Android View"
-  > - The view that receives commands from a presenter in MVP, will be simply called "view".
+  > The class android.view.View will be referred to as "Android View"
+  The view that receives commands from a presenter in MVP, will be simply called "view".
 
   我来献个丑，翻译一下：
 > 注意：在MVP的上下文里，“view”一词有多重含义:
 
   > - android.view.View被称为“Android View”
-  > - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
+  - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
 
   什么意思？
 
