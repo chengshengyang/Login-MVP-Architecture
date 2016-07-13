@@ -56,29 +56,29 @@ BaseView作为View接口基类，定义了一个重要的接口：
 
 - 2.登陆契约类LoginContract
 
-      public interface LoginContract {
+      	public interface LoginContract {
 
-      interface Presenter extends BasePresenter {
-            void login();
-            void reset();
-      }
+      		interface Presenter extends BasePresenter {
+            	void login();
+            	void reset();
+      		}
 
-      interface View extends BaseView<Presenter> {
-            String getUserEmail();
-            String getPassword();
+      		interface View extends BaseView<Presenter> {
+            	String getUserEmail();
+            	String getPassword();
 
-            boolean isEmailValid(String email);
-            boolean isPasswordValid(String password);
+            	boolean isEmailValid(String email);
+            	boolean isPasswordValid(String password);
+	
+           		 boolean setEmailError(String error);
+           		 boolean setPasswordError(String error);
 
-            boolean setEmailError(String error);
-            boolean setPasswordError(String error);
-
-            void showLoginProgress(boolean show);
-            void resetEditView();
-            void toMainAct();
-            void showFailedError();
-        }
-      }
+            	void showLoginProgress(boolean show);
+            	void resetEditView();
+            	void toMainAct();
+            	void showFailedError();
+        		}
+      		}
 
   这个类是首次出现于google的mvp示例中，以前的MVP模式并未见到，这个类定义了View接口和Presenter接口为对方的实例提供的方法。
 
@@ -89,7 +89,7 @@ BaseView作为View接口基类，定义了一个重要的接口：
 - 3.View的实现类LoginFragment implements LoginContract.View
 实现接口定义的各个方法，必须持有Presenter，并通过接口
 
-      void setPresenter（T presenter）
+      	void setPresenter（T presenter）
 
 为其赋值。
 
@@ -112,8 +112,9 @@ The view that receives commands from a presenter in MVP, will be simply called "
 - 4.Presenter的实现类LoginPresenter implements LoginContract.Presenter
 实现接口定义的各个方法，必须持有Model对象和View对象
 
-      private final UserRepository mUserRepository;
-      private final LoginContract.View mLoginView;
+      	private final UserRepository mUserRepository;
+      
+      	private final LoginContract.View mLoginView;
 
 然后，你想让View干嘛，调用View相对应的接口就行了，想要什么数据，想对数据做什么操作，调用Model对象的对应方法就行了；或许你已经发现了：
 

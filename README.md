@@ -30,7 +30,8 @@
 
 - 隐藏内容：这里面其实还有一个内容--契约类，也就是项目里的XXXContract.java类，是一个接口类，作用是定义VIEW接口和PRESENTER接口提供的接口方法。这个类原则上不属于MVP模式里的任何角色，所以没在上图出现，可以理解。
 
-  [先看看效果](http://m.17sysj.com/video/lpds_c08a0fc39800a) 不方便看视频的就看看图吧！
+  [先看看效果](http://m.17sysj.com/video/lpds_c08a0fc39800a) 不方便看视频的就看看图吧！  
+  
 ![Login-MVP](https://github.com/chengshengyang/test/blob/master/21.jpg?raw=true)
 
 -------
@@ -38,9 +39,9 @@
 ![项目代码结构](https://github.com/chengshengyang/test/blob/master/23.png?raw=true)
 
 - 1.创建View接口和Presenter接口基类
-BaseView作为View接口基类，定义了一个重要的接口：
+	BaseView作为View接口基类，定义了一个重要的接口：
 
-       void setPresenter(T presenter);
+       	void setPresenter(T presenter);
 
 ![看见这个接口了吗？](https://github.com/chengshengyang/test/blob/master/26.jpg?raw=true)
 
