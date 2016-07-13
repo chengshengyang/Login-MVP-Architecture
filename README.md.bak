@@ -1,10 +1,13 @@
 # Login-MVP-Architecture
 - MVP架构模拟登陆功能
+
 [原文地址](http://www.jianshu.com/p/f8e9967bac76#comments)
+
 # MVP简介
 最近几天在啃MVP，现在的你或许跟几天前的我一样，对MVP还是一脸懵逼，虽然MVP三个字母都认识，但连在一起却不明白到底是个什么东东，没关系，快来干了这碗鸡汤，立马从懵逼到入门，入不了门你来打我，文末统计人数。
 
 --------
+
 首先，MVP是一种设计模式，或者说架构。Google把它列入[Android Architecture Blueprints](https://github.com/googlesamples/android-architecture)--Android 架构蓝图，并给出了官方的例子来解释如何实现MVP。本文实现的登陆功能就是根据[MVP基础架构Demo](https://github.com/googlesamples/android-architecture/tree/todo-mvp/)来实现的。
 
 其次，MVP从何而来？想必都知道是MVC的演化版本，现在比较流行，被广大开发者所认可。被认可的原因我在这里总结一下：
@@ -31,13 +34,16 @@
 ![Login-MVP](https://github.com/chengshengyang/test/blob/master/21.jpg?raw=true)
 
 -------
+
 ![项目代码结构](https://github.com/chengshengyang/test/blob/master/23.png?raw=true)
 
 - 1.创建View接口和Presenter接口基类
 BaseView作为View接口基类，定义了一个重要的接口：
 
        void setPresenter(T presenter);
+
 ![看见这个接口了吗？](https://github.com/chengshengyang/test/blob/master/26.jpg?raw=true)
+
 ![看见了又怎样？](https://github.com/chengshengyang/test/blob/master/25.jpg?raw=true)
 
   这其实是MVP的一个关键点，通过这个接口，View的实现类（即Fragment）就持有了Presenter的实例，于是，View就可以通过Presenter来操作Model中的数据接口了。如果你要实现MVP模式，记住，不管三七二十一，先写这个基佬，哦，不对，是基类。
@@ -45,9 +51,11 @@ BaseView作为View接口基类，定义了一个重要的接口：
   Presenter接口基类里同样定义了一个接口：
 
       void start();
+
 这个方法就是直接操作Model的，比如加载数据。通过这两个基类的定义的接口就能看出，View和Model不直接交互，而是通过Presenter来操作，这是与MVC的不同之处。
 
 - 2.登陆契约类LoginContract
+
       public interface LoginContract {
 
       interface Presenter extends BasePresenter {
@@ -71,6 +79,7 @@ BaseView作为View接口基类，定义了一个重要的接口：
             void showFailedError();
         }
       }
+
   这个类是首次出现于google的mvp示例中，以前的MVP模式并未见到，这个类定义了View接口和Presenter接口为对方的实例提供的方法。
 
   比如，我在View中可以获取用户输入的邮箱和密码，判断邮箱密码是否有效，设置邮箱密码输入框错误提示信息，显示登陆ProgressBar等，同样，在Presenter接口中，提供了登陆和重置两个功能，用户通过View上的两个按钮，响应Presenter对应的接口，执行相关的业务逻辑。
@@ -81,6 +90,7 @@ BaseView作为View接口基类，定义了一个重要的接口：
 实现接口定义的各个方法，必须持有Presenter，并通过接口
 
       void setPresenter（T presenter）
+
 为其赋值。
 
   注意官方的demo说明里有这段内容：
@@ -93,7 +103,7 @@ The view that receives commands from a presenter in MVP, will be simply called "
 > 注意：在MVP的上下文里，“view”一词有多重含义:
 
   > - android.view.View被称为“Android View”
-  - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
+    - 在MVP中，从presenter接收命令的view将被简单地称为“view”。
 
   什么意思？
 
@@ -104,6 +114,7 @@ The view that receives commands from a presenter in MVP, will be simply called "
 
       private final UserRepository mUserRepository;
       private final LoginContract.View mLoginView;
+
 然后，你想让View干嘛，调用View相对应的接口就行了，想要什么数据，想对数据做什么操作，调用Model对象的对应方法就行了；或许你已经发现了：
 
   **Presenter对View的操作都是通过接口来完成的。**
@@ -123,6 +134,7 @@ Tablet布局或者屏幕上有多个views的布局可以很好的利用Fragments
   在MVP模式里，Activity的功能变得简单了很多，一是创建View布局（Fragment），二是实例化Presenter（LoginPresenter），并将View（Fragment）作为参数，传入到Presenter（LoginPresenter）中，在Presenter（LoginPresenter）构造函数中传递给Presenter（LoginPresenter）持有的View对象，然后View对象调用setPresenter方法，将自身this传递给View实例（Fragment）。也就是上面说的“***创建和连接views与presenters。***”
 
   来看看Activity代码多简单：
+
       public class LoginActivity extends AppCompatActivity {    
             @Override    
             protected void onCreate(Bundle savedInstanceState) {
@@ -148,12 +160,14 @@ Tablet布局或者屏幕上有多个views的布局可以很好的利用Fragments
                     loginFragment);    
         }
       }
+
   至此，MVP模式里的VP就可以运行起来了，连通起来了。下面来说说Model。如果对MVC的Model非常熟悉可以跳过。
 
 - 6.Model的创建
 在目录结构图中，整个data package里的都是Model的内容，包括实体模型（User类）、本地数据库操作（local package）、远程数据访问（remote package）三部分，跟在MVC里并无差别，这里不展开介绍。
 
   业务逻辑需要什么样的数据实体、数据操作，在对应的包里面构建就行了，这里要提到的是，Presenter对Model的持有，这里也是通过接口实现的，间接通过UserDataSource接口类，直接通过UserDataSource的实现类UserRepository。而UserRepository同时持有对本地数据和远程数据操作的对象：
+
       private final UserDataSource mLocalDataSource;
       private final UserDataSource mRemoteDataSource;
 
