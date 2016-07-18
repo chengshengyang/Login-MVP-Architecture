@@ -28,4 +28,9 @@ dependencies {
 
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
     compile 'com.jakewharton:butterknife:8.1.0'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'io.reactivex:rxandroid:1.1.0'
 }

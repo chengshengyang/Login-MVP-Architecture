@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/basicPadding" >
+
+    <TextView
+        android:id="@+id/tab_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Tab Item"
+        android:paddingTop="@dimen/smallPadding"
+        android:drawableTop="@drawable/main_selector_setting" />
+
+    <TextView
+        android:id="@+id/tab_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N"
+        android:textSize="@dimen/smaller_text_size"
+        android:textColor="@android:color/white"
+        android:background="@drawable/ic_new_msg"
+        android:layout_marginRight="@dimen/littleMargin"
+        android:layout_gravity="right|top"
+        android:gravity="center" />
+</FrameLayout>
