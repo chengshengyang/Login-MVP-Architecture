@@ -2,4 +2,52 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="slidingmenu_offset">240dp</dimen>
+    <dimen name="account_corners_radius">8dp</dimen>
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="stroke_dashwidth">2dp</dimen>
+    <dimen name="exchangeTextSize">14sp</dimen>
+
+    <!-- Margin -->
+    <dimen name="basicMargin">4.0dip</dimen>
+    <dimen name="littleMargin">8dp</dimen>
+    <dimen name="smallMargin">16dp</dimen>
+    <dimen name="middleMargin">28dp</dimen>
+    <dimen name="bigMargin">45dp</dimen>
+    <dimen name="SuperMargin">60dp</dimen>
+
+    <!-- padding -->
+    <dimen name="basicPadding">4.0dip</dimen>
+    <dimen name="smallPadding">8.0dip</dimen>
+    <dimen name="middlePadding">10.0dip</dimen>
+    <dimen name="normalPadding">12.0dip</dimen>
+    <dimen name="bigPadding">20.0dip</dimen>
+
+    <!-- padding other -->
+    <dimen name="list_padding">10dp</dimen>
+    <dimen name="account_padding">1.5dp</dimen>
+    <dimen name="old_editortext_padding">8dp</dimen>
+
+    <!-- text_size -->
+    <dimen name="tiny_text_size">8sp</dimen>
+    <dimen name="smallest_text_size">6sp</dimen>
+    <dimen name="smaller_text_size">10sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="big_text_size">16sp</dimen>
+    <dimen name="super_big_text_size">18sp</dimen>
+    <dimen name="actionBarTextSize">18.0sp</dimen>
+    <dimen name="hintTextSize">14.0dip</dimen>
+    <dimen name="defaultActionbarWidth">56dip</dimen>
+    <dimen name="defaultActionbarHeightPort">49.0dip</dimen>
+    <dimen name="more_button_paddingleft">20dp</dimen>
+    <dimen name="more_button_paddingtop">12dp</dimen>
+    <dimen name="maintab_height">51dp</dimen>
+    <dimen name="maintab_padding">3dp</dimen>
+    <dimen name="item_height">65dp</dimen>
+    <dimen name="groupitem_height">55dp</dimen>
+    <dimen name="item_paddingleft">10dp</dimen>
+    <dimen name="item_paddingtop">6dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 </resources>

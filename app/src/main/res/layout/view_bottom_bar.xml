@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/listview_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.github.mvp.widgets.TabItem
+            android:id="@+id/tab_item_main_0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/main_selector_space"
+            app:tab_item_count="0"
+            app:tab_item_label="首页" />
+
+        <com.github.mvp.widgets.TabItem
+            android:id="@+id/tab_item_main_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/main_selector_department"
+            app:tab_item_count="99"
+            app:tab_item_label="发现" />
+
+        <com.github.mvp.widgets.TabItem
+            android:id="@+id/tab_item_main_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/main_selector_mipian"
+            app:tab_item_count="3"
+            app:tab_item_label="通知" />
+
+        <com.github.mvp.widgets.TabItem
+            android:id="@+id/tab_item_main_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/main_selector_message"
+            app:tab_item_count="2"
+            app:tab_item_label="私信" />
+
+        <com.github.mvp.widgets.TabItem
+            android:id="@+id/tab_item_main_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/main_selector_setting"
+            app:tab_item_count="0"
+            app:tab_item_label="更多" />
+    </LinearLayout>
+</LinearLayout>

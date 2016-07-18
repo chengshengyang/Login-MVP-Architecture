@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TabItem">
+        <attr name="android:src"/>
+        <attr name="tab_item_label" format="string"/>
+        <attr name="tab_item_count" format="integer"/>
+    </declare-styleable>
+</resources>
