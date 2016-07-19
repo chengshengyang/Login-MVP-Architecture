@@ -12,16 +12,16 @@ import com.github.mvp.constants.TagStatic;
 /**
  * Created by Administrator on 2016/7/18 0018.
  */
-public class InterestFragment extends BaseFragment {
+public class OtherFragment extends BaseFragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main_1, container, false);
+        return inflater.inflate(R.layout.fragment_main_4, container, false);
     }
 
     @Override
     public int getFragmentTag() {
-        return TagStatic.TAG_FRAGMENT_INTEREST;
+        return TagStatic.TAG_FRAGMENT_OTHER;
     }
 }

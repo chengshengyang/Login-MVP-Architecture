@@ -5,7 +5,10 @@ import android.support.v4.app.FragmentManager;
 import com.github.mvp.BasePresenter;
 import com.github.mvp.BaseView;
 import com.github.mvp.data.RootEntity;
+import com.github.mvp.data.StoriesEntity;
 import com.github.mvp.data.StoryDetailsEntity;
+
+import java.util.List;
 
 import retrofit2.http.Path;
 
@@ -23,10 +26,10 @@ public interface MainContract {
     }
 
     interface View extends BaseView<Presenter> {
-        void clearFragment(FragmentManager fragmentManager);
         void setSelection(int tag);
 
-        void showFragment(FragmentManager fragmentManager, BaseFragment fragment);
-        void hideFragment(FragmentManager fragmentManager, BaseFragment fragment);
+        int getFragmentTag();
+
+        void refresh(List<StoriesEntity> list);
     }
 }

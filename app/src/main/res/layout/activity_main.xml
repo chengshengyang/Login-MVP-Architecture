@@ -5,8 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <include layout="@layout/view_bottom_bar"
+    <include
+        android:id="@+id/main_tab_bar_layout"
+        layout="@layout/view_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_above="@id/main_tab_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 </RelativeLayout>

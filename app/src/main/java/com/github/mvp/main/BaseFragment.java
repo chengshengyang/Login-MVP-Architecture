@@ -3,13 +3,16 @@ package com.github.mvp.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.github.mvp.data.RootEntity;
+import com.github.mvp.data.StoriesEntity;
+import com.github.mvp.login.LoginContract;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -20,6 +23,7 @@ import rx.Observable;
 public class BaseFragment extends Fragment implements MainContract.View {
 
     private String baseUrl="http://news-at.zhihu.com";//baseUrl一定要设为这个
+    protected MainContract.Presenter mPresenter;
 
     @Nullable
     @Override
@@ -27,12 +31,12 @@ public class BaseFragment extends Fragment implements MainContract.View {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    protected void loadData(Observable<RootEntity> rootEntityObservable, final ListView listView) {
-
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        this.mPresenter = presenter;
     }
 
-    @Override
-    public void clearFragment(FragmentManager fragmentManager) {
+    protected void loadData(Observable<RootEntity> rootEntityObservable, final ListView listView) {
 
     }
 
@@ -42,17 +46,12 @@ public class BaseFragment extends Fragment implements MainContract.View {
     }
 
     @Override
-    public void showFragment(FragmentManager fragmentManager, BaseFragment fragment) {
-
+    public int getFragmentTag() {
+        return 0;
     }
 
     @Override
-    public void hideFragment(FragmentManager fragmentManager, BaseFragment fragment) {
-
-    }
-
-    @Override
-    public void setPresenter(MainContract.Presenter presenter) {
+    public void refresh(List<StoriesEntity> list) {
 
     }
 }
