@@ -13,15 +13,16 @@ import retrofit2.http.Path;
  */
 public class MainPresenter implements MainContract.Presenter {
 
-    private final UserRepository mUserRepository;
-    private final MainContract.View mMainView;
-    private final Context mContext;
+    //private final UserRepository mUserRepository;
+    private MainContract.View mMainView;
+    private Context mContext;
 
-    public MainPresenter(Context context, UserRepository userRepository, MainContract.View view) {
+    public MainPresenter(Context context) {
         this.mContext = context;
-        this.mMainView = view;
-        this.mUserRepository = userRepository;
+    }
 
+    public void setView(MainContract.View view) {
+        this.mMainView = view;
         mMainView.setPresenter(this);
     }
 
