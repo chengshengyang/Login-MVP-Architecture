@@ -30,6 +30,8 @@ public interface MainContract {
 
         int getFragmentTag();
 
+        void setTitle();
+
         void refresh(List<StoriesEntity> list);
     }
 }
