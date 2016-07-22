@@ -26,6 +26,7 @@
         <activity
             android:name=".main.MainActivity"
             android:configChanges="orientation|screenSize|keyboard"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="MainAct" />
         <activity android:name=".storydetail.StoryDetailActivity"></activity>
     </application>

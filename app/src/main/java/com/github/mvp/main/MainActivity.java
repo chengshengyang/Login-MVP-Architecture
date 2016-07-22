@@ -1,9 +1,12 @@
 package com.github.mvp.main;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.github.mvp.R;
@@ -31,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tab_item_main_4)
     TabItem tabItemMain4;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.fab)
+    FloatingActionButton floatingBar;
+
     private FragmentManager mFragmentManager;
     private TodayFragment mTodayFragment;
     private InterestFragment mInterestFragment;
@@ -47,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mFragmentManager = getSupportFragmentManager();
+        setSupportActionBar(toolbar);
 
         mPresenter = new MainPresenter(getApplicationContext());
 
@@ -149,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.tab_item_main_0, R.id.tab_item_main_1, R.id.tab_item_main_2,
-            R.id.tab_item_main_3, R.id.tab_item_main_4})
+            R.id.tab_item_main_3, R.id.tab_item_main_4, R.id.fab})
     public void onClick(View view) {
         clearChecked();
         switch (view.getId()) {
@@ -176,6 +186,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tab_item_main_4:
                 tabItemMain4.setChecked(true);
                 showFragment(TagStatic.TAG_FRAGMENT_OTHER);
+                break;
+
+            case R.id.fab:
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
                 break;
         }
     }

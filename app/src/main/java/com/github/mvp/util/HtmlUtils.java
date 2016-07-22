@@ -2,9 +2,6 @@ package com.github.mvp.util;
 
 import com.github.mvp.data.StoryDetailsEntity;
 
-/**
- * Created by diff on 2016/2/4.
- */
 public class HtmlUtils {
     public static String structHtml(StoryDetailsEntity storyDetailsEntity) {
         StringBuilder sb = new StringBuilder();
