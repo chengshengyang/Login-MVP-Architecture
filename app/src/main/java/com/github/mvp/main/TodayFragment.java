@@ -2,22 +2,7 @@ package com.github.mvp.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-
-import com.github.mvp.R;
-import com.github.mvp.constants.TagStatic;
-import com.github.mvp.data.StoriesEntity;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2016/7/18 0018.
@@ -61,16 +46,6 @@ public class TodayFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         mPresenter.start();
-    }
-
-    @Override
-    public void setSelection(int tag) {
-
-    }
-
-    @Override
-    public int getFragmentTag() {
-        return TagStatic.TAG_FRAGMENT_TODAY;
     }
 
     @Override
