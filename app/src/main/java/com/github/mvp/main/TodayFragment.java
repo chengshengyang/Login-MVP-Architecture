@@ -3,6 +3,7 @@ package com.github.mvp.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +22,13 @@ import butterknife.ButterKnife;
 /**
  * Created by Administrator on 2016/7/18 0018.
  */
-public class TodayFragment extends Fragment implements MainContract.View {
+public class TodayFragment extends BaseFragment {
 
-    @BindView(R.id.lv_news)
+    /*@BindView(R.id.lv_news)
     ListView mListView;
 
     protected MainContract.Presenter mPresenter;
     private ZhiHuNewsAdapter mAdapter;
-    private ArrayList<StoriesEntity> mStories = new ArrayList<>();
 
     @Nullable
     @Override
@@ -37,16 +37,22 @@ public class TodayFragment extends Fragment implements MainContract.View {
         ButterKnife.bind(this, view);
 
         return view;
-    }
+    }*/
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        mAdapter = new ZhiHuNewsAdapter(getContext());
-        mListView.setAdapter(mAdapter);
+        super.onViewCreated(view, savedInstanceState);
         mPresenter.getLatestNews();
     }
 
     @Override
+    public void setTitle() {
+        if (mActionBar != null) {
+            mActionBar.setTitle("今日日报");
+        }
+    }
+
+    /*@Override
     public void setPresenter(MainContract.Presenter presenter) {
         this.mPresenter = presenter;
     }
@@ -54,7 +60,7 @@ public class TodayFragment extends Fragment implements MainContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();//TODO
+        mPresenter.start();
     }
 
     @Override
@@ -70,5 +76,5 @@ public class TodayFragment extends Fragment implements MainContract.View {
     @Override
     public void refresh(List<StoriesEntity> list) {
         mAdapter.setNewsList(list);
-    }
+    }*/
 }

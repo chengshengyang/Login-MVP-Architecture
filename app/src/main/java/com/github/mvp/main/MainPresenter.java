@@ -9,15 +9,12 @@ import com.github.mvp.data.source.retrofit2service.ZhiHuService;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Path;
 import rx.Observable;
-import rx.Scheduler;
 import rx.Subscriber;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -34,7 +31,7 @@ public class MainPresenter implements MainContract.Presenter {
     private MainContract.View mMainView;
     private Context mContext;
 
-    //要靠他来获取消息，子Fragment都要用
+    //要靠他来获取消息
     protected ZhiHuService service;
 
     public MainPresenter(Context context) {
@@ -44,6 +41,7 @@ public class MainPresenter implements MainContract.Presenter {
     public void setView(MainContract.View view) {
         this.mMainView = view;
         mMainView.setPresenter(this);
+        mMainView.setTitle();
         service = getService();
     }
 
@@ -59,8 +57,36 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public RootEntity getLatestNews() {
+        return loadData(service.getLatestNews());
+    }
+
+    @Override
+    public RootEntity getSafety() {
+        return loadData(service.getSafety());
+    }
+
+    @Override
+    public RootEntity getInterest() {
+        return loadData(service.getInterest());
+    }
+
+    @Override
+    public RootEntity getSport() {
+        return loadData(service.getSport());
+    }
+
+    @Override
+    public StoryDetailsEntity getNewsDetail(@Path("id") int id) {
+        return null;
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    public RootEntity loadData(Observable<RootEntity> observable) {
         final RootEntity rootEntity = new RootEntity();
-        Observable<RootEntity> observable = service.getLatestNews();
         observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .map(new Func1<RootEntity, ArrayList<StoriesEntity>>() {
@@ -86,31 +112,7 @@ public class MainPresenter implements MainContract.Presenter {
                         mMainView.refresh(storiesEntities);
                     }
                 });
+
         return rootEntity;
-    }
-
-    @Override
-    public RootEntity getSafety() {
-        return null;
-    }
-
-    @Override
-    public RootEntity getInterest() {
-        return null;
-    }
-
-    @Override
-    public RootEntity getSport() {
-        return null;
-    }
-
-    @Override
-    public StoryDetailsEntity getNewsDetail(@Path("id") int id) {
-        return null;
-    }
-
-    @Override
-    public void start() {
-
     }
 }
