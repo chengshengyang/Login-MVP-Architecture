@@ -13,16 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.github.mvp.R;
+import com.github.mvp.main.MainActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.github.mvp.R;
-import com.github.mvp.main.MainActivity;
 
 /**
  * Created by Administrator on 2016/7/11 0011.
@@ -41,6 +43,9 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     @BindView(R.id.login_form)
     ScrollView mLoginForm;
 
+    @BindView(R.id.email_sign_in_button)
+    Button signButton;
+
     /**
      * MVP中的View持有Presenter的实例，并通过View接口LoginContract.View.setPresenter()传入。
      */
@@ -58,6 +63,9 @@ public class LoginFragment extends Fragment implements LoginContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
+
+        // 注释这句代码来取消模拟自动登陆
+        signButton.performClick();
     }
 
     @Override
@@ -149,7 +157,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         if (!TextUtils.isEmpty(error)) {
             mEmailView.requestFocus();
         }
-        return  true;
+        return true;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.github.mvp.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,7 @@ import android.view.View;
 
 import com.github.mvp.R;
 import com.github.mvp.constants.TagStatic;
+import com.github.mvp.toolbar.ToolBarActivity;
 import com.github.mvp.widgets.TabItem;
 
 import butterknife.BindView;
@@ -189,8 +191,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.fab:
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
+                startActivity(intent);
                 break;
         }
     }

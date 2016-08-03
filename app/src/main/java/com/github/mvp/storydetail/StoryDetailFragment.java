@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,15 +28,16 @@ import butterknife.ButterKnife;
  * create an instance of this fragment.
  */
 public class StoryDetailFragment extends Fragment implements StoryDetailContract.View {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     public static final String STORY_ID = "story_id";
     public static final String STORY_TITLE = "story_title";
 
     @BindView(R.id.story_detail_webView)
     WebView storyDetailWebView;
 
-    // TODO: Rename and change types of parameters
+    @BindView(R.id.login_tool_bar)
+    Toolbar loginToolBar;
+
     private int mStoryId;
     private String mTitle;
 
@@ -51,7 +53,7 @@ public class StoryDetailFragment extends Fragment implements StoryDetailContract
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param id     Parameter 1.
+     * @param id    Parameter 1.
      * @param title Parameter 2.
      * @return A new instance of fragment StoryDetailFragment.
      */
@@ -72,12 +74,6 @@ public class StoryDetailFragment extends Fragment implements StoryDetailContract
             mStoryId = getArguments().getInt(STORY_ID);
             mTitle = getArguments().getString(STORY_TITLE);
         }
-
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        if (null != actionBar) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(mTitle);
-        }
     }
 
     @Override
@@ -93,6 +89,17 @@ public class StoryDetailFragment extends Fragment implements StoryDetailContract
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter.getNewsDetail(mStoryId);
+        initToolBar();
+    }
+
+    private void initToolBar() {
+        loginToolBar.setTitle(mTitle);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(loginToolBar);
+
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (null != actionBar) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
