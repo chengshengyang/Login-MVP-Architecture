@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.github.mvp.data.RootEntity;
 import com.github.mvp.data.StoriesEntity;
-import com.github.mvp.data.StoryDetailsEntity;
 import com.github.mvp.data.source.retrofit2service.ZhiHuService;
 
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Path;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -24,7 +22,6 @@ import rx.schedulers.Schedulers;
  */
 public class MainPresenter implements MainContract.Presenter {
 
-    //baseUrl一定要设为这个
     private String baseUrl = "http://news-at.zhihu.com";
 
     //private final UserRepository mUserRepository;
@@ -73,11 +70,6 @@ public class MainPresenter implements MainContract.Presenter {
     @Override
     public RootEntity getSport() {
         return loadData(service.getSport());
-    }
-
-    @Override
-    public StoryDetailsEntity getNewsDetail(@Path("id") int id) {
-        return null;
     }
 
     @Override

@@ -21,5 +21,5 @@
         android:layout_toLeftOf="@id/ivnews"
         android:text="title"
         android:textColor="@color/blacktext"
-        android:textSize="@dimen/big_text_size" />
+        android:textSize="@dimen/super_big_text_size" />
 </RelativeLayout>

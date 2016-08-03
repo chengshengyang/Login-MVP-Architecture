@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 import com.github.mvp.R;
 import com.github.mvp.data.StoriesEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

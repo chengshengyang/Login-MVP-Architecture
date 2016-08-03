@@ -13,9 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.github.mvp.R;
-import com.github.mvp.data.RootEntity;
 import com.github.mvp.data.StoriesEntity;
-import com.github.mvp.login.LoginContract;
 import com.github.mvp.storydetail.StoryDetailActivity;
 import com.github.mvp.storydetail.StoryDetailFragment;
 
@@ -23,7 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
 
 
 /**
@@ -52,7 +49,6 @@ public class BaseFragment extends Fragment implements MainContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mAdapter = new ZhiHuNewsAdapter(getContext());
         mListView.setAdapter(mAdapter);
-        //mPresenter.getLatestNews();
     }
 
     @Override
@@ -67,16 +63,6 @@ public class BaseFragment extends Fragment implements MainContract.View {
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
         this.mPresenter = presenter;
-    }
-
-    @Override
-    public void setSelection(int tag) {
-
-    }
-
-    @Override
-    public int getFragmentTag() {
-        return 0;
     }
 
     @Override
