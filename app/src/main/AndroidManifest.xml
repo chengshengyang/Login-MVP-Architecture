@@ -29,6 +29,7 @@
             android:label="MainAct" />
         <activity android:name=".storydetail.StoryDetailActivity" />
         <activity android:name=".toolbar.ToolBarActivity" />
+        <activity android:name=".HorizontalVerticalViewPager.HorizontalVerticalPagerActivity" />
     </application>
 
 </manifest>

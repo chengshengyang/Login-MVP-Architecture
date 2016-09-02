@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalPagerActivity;
+import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalViewPager;
 import com.github.mvp.R;
 import com.github.mvp.constants.TagStatic;
 import com.github.mvp.toolbar.ToolBarActivity;
@@ -191,7 +193,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.fab:
-                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
+                // ToolBar相关内容
+//                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
+//                startActivity(intent);
+
+                // HorizontalVerticalViewPager相关内容
+                Intent intent = new Intent(MainActivity.this, HorizontalVerticalPagerActivity.class);
                 startActivity(intent);
                 break;
         }
