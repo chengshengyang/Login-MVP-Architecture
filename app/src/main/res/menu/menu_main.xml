@@ -6,7 +6,7 @@
         android:title="edit"
         android:orderInCategory="80"
         android:icon="@drawable/main_ic_message_selected"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item android:id="@+id/action_share"
         android:title="share"

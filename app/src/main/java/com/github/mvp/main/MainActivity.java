@@ -3,18 +3,16 @@ package com.github.mvp.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalPagerActivity;
-import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalViewPager;
 import com.github.mvp.R;
 import com.github.mvp.constants.TagStatic;
 import com.github.mvp.toolbar.ToolBarActivity;
+import com.github.mvp.util.TimeUtil;
 import com.github.mvp.widgets.TabItem;
 
 import butterknife.BindView;
@@ -65,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         mPresenter = new MainPresenter(getApplicationContext());
 
         tabItemMain0.performClick();
+
+        showTimeFormat(System.currentTimeMillis() - 79999999);
     }
 
     public void showFragment(int tag) {
@@ -194,12 +194,12 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.fab:
                 // ToolBar相关内容
-//                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
+                startActivity(intent);
 
                 // HorizontalVerticalViewPager相关内容
-                Intent intent = new Intent(MainActivity.this, HorizontalVerticalPagerActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, HorizontalVerticalPagerActivity.class);
+//                startActivity(intent);
                 break;
         }
     }
@@ -210,5 +210,37 @@ public class MainActivity extends AppCompatActivity {
         tabItemMain2.setChecked(false);
         tabItemMain3.setChecked(false);
         tabItemMain4.setChecked(false);
+    }
+
+    /**
+     *
+     06-01 10:38:40.477 18435-18435/com.github.mvp I/System.out: 07:52:00
+     06-01 10:38:40.478 18435-18435/com.github.mvp I/System.out: 本月
+     06-01 10:38:40.478 18435-18435/com.github.mvp I/System.out: 今天
+     06-01 10:38:40.478 18435-18435/com.github.mvp I/System.out: 06
+     06-01 10:38:40.479 18435-18435/com.github.mvp I/System.out: 06-01
+     06-01 10:38:40.479 18435-18435/com.github.mvp I/System.out: 06-01 07:52:00
+     06-01 10:38:40.480 18435-18435/com.github.mvp I/System.out: 2017-06
+     06-01 10:38:40.480 18435-18435/com.github.mvp I/System.out: 2017-06-01
+     06-01 10:38:40.480 18435-18435/com.github.mvp I/System.out: 2017-06-01 07:52:00
+     06-01 10:38:40.481 18435-18435/com.github.mvp I/System.out: 星期四
+     * @param time
+     */
+    private void showTimeFormat(long time) {
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_AUTO));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_AUTO_MOUTH));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_AUTO_WEEK));
+
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_MONTH));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_MOUTH_DAY));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_MOUTH_DAY_TIME));
+
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_YEAR_MOUTH));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_YEAR_MOUTH_DAY));
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_YEAR_MOUTH_DAY_TIME));
+
+        System.out.println(TimeUtil.format(this, time, TimeUtil.TYPE_WEEK));
+
+        System.out.println(TimeUtil.format(time));
     }
 }
