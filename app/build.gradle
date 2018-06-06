@@ -1,16 +1,15 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.github.mvp"
         minSdkVersion 18
-        targetSdkVersion 23
+        targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -21,20 +20,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
 
-    apt 'com.jakewharton:butterknife-compiler:8.1.0'
-    compile 'com.jakewharton:butterknife:8.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
 
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile 'com.android.support:support-v4:23.3.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
 
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-    compile 'io.reactivex:rxandroid:1.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'io.reactivex:rxandroid:1.1.0'
 
-    compile 'com.github.bumptech.glide:glide:3.5.2'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
 }
