@@ -1,7 +1,10 @@
 # Login-MVP-Architecture
-- MVP架构模拟登陆功能
 
-[原文地址](http://www.jianshu.com/p/f8e9967bac76#comments)
+- 相关阅读
+
+[Android MVP从懵逼到入门：登陆业务实践](http://www.jianshu.com/p/f8e9967bac76#comments)
+
+[Android MVP进阶：“修行在个人”](http://www.jianshu.com/p/835842e18a79)
 
 # MVP简介
 最近几天在啃MVP，现在的你或许跟几天前的我一样，对MVP还是一脸懵逼，虽然MVP三个字母都认识，但连在一起却不明白到底是个什么东东，没关系，快来干了这碗鸡汤，立马从懵逼到入门，入不了门你来打我，文末统计人数。

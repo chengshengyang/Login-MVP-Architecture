@@ -1,17 +1,26 @@
 package com.github.mvp.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.github.mvp.data.RootEntity;
+import com.github.mvp.R;
+import com.github.mvp.data.StoriesEntity;
+import com.github.mvp.storydetail.StoryDetailActivity;
+import com.github.mvp.storydetail.StoryDetailFragment;
 
-import rx.Observable;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -19,40 +28,61 @@ import rx.Observable;
  */
 public class BaseFragment extends Fragment implements MainContract.View {
 
-    private String baseUrl="http://news-at.zhihu.com";//baseUrl一定要设为这个
+    @BindView(R.id.lv_news)
+    ListView mListView;
+
+    protected MainContract.Presenter mPresenter;
+    protected ActionBar mActionBar;
+    private ZhiHuNewsAdapter mAdapter;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main_0, container, false);
+        ButterKnife.bind(this, view);
 
-    protected void loadData(Observable<RootEntity> rootEntityObservable, final ListView listView) {
-
-    }
-
-    @Override
-    public void clearFragment(FragmentManager fragmentManager) {
-
+        return view;
     }
 
     @Override
-    public void setSelection(int tag) {
-
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        mAdapter = new ZhiHuNewsAdapter(getContext());
+        mListView.setAdapter(mAdapter);
     }
 
     @Override
-    public void showFragment(FragmentManager fragmentManager, BaseFragment fragment) {
-
-    }
-
-    @Override
-    public void hideFragment(FragmentManager fragmentManager, BaseFragment fragment) {
-
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (isAdded()) {
+            mActionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+            setTitle();
+        }
     }
 
     @Override
     public void setPresenter(MainContract.Presenter presenter) {
+        this.mPresenter = presenter;
+    }
 
+    @Override
+    public void refresh(final List<StoriesEntity> list) {
+        mAdapter.setNewsList(list);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), StoryDetailActivity.class);
+                intent.putExtra(StoryDetailFragment.STORY_ID, list.get(position).getId());
+                intent.putExtra(StoryDetailFragment.STORY_TITLE, list.get(position).getTitle());
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void setTitle() {
+        if (mActionBar != null) {
+            mActionBar.setTitle(R.string.app_name);
+        }
     }
 }

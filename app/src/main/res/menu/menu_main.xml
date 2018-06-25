@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".toolbar.ToolBarActivity">
+    <item android:id="@+id/action_edit"
+        android:title="edit"
+        android:orderInCategory="80"
+        android:icon="@drawable/main_ic_message_selected"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_share"
+        android:title="share"
+        android:orderInCategory="90"
+        android:icon="@drawable/main_ic_mipian_selected"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_settings"
+        android:title="setting"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+</menu>

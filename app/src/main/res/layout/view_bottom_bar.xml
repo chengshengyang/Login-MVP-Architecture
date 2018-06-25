@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/main_selector_department"
-            app:tab_item_count="99"
+            app:tab_item_count="0"
             app:tab_item_label="发现" />
 
         <com.github.mvp.widgets.TabItem
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/main_selector_mipian"
-            app:tab_item_count="3"
+            app:tab_item_count="1"
             app:tab_item_label="通知" />
 
         <com.github.mvp.widgets.TabItem

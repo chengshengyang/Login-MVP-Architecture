@@ -8,7 +8,7 @@ import retrofit2.http.Path;
 import rx.Observable;
 
 /**
- * Created by Administrator on 2016/5/26.
+ * Created by chengsy on 2016/5/26.
  */
 public interface ZhiHuService {
 
@@ -28,8 +28,7 @@ public interface ZhiHuService {
     @GET("/api/4/theme/8")
     Observable<RootEntity> getSport();
 
-    //传入id查看详细信息
+    //查看详细信息
     @GET("/api/4/news/{id}")
     Observable<StoryDetailsEntity> getNewsDetails(@Path("id") int id);
-
 }
