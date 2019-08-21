@@ -40,6 +40,7 @@
                         android:adjustViewBounds="true"
                         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
                         android:fitsSystemWindows="true"
+                        app:layout_collapseParallaxMultiplier="0.5"
                         app:layout_collapseMode="parallax" />
 
                     <ImageView
