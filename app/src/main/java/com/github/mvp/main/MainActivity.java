@@ -3,15 +3,12 @@ package com.github.mvp.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalPagerActivity;
-import com.github.mvp.HorizontalVerticalViewPager.HorizontalVerticalViewPager;
 import com.github.mvp.R;
 import com.github.mvp.constants.TagStatic;
 import com.github.mvp.toolbar.ToolBarActivity;
@@ -194,12 +191,12 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.fab:
                 // ToolBar相关内容
-//                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ToolBarActivity.class);
+                startActivity(intent);
 
                 // HorizontalVerticalViewPager相关内容
-                Intent intent = new Intent(MainActivity.this, HorizontalVerticalPagerActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, HorizontalVerticalPagerActivity.class);
+//                startActivity(intent);
                 break;
         }
     }
