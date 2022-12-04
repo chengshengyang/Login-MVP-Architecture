@@ -65,7 +65,7 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         mPresenter.start();
 
         // 注释这句代码来取消模拟自动登陆
-        signButton.performClick();
+        //signButton.performClick();
     }
 
     @Override
